@@ -1,9 +1,13 @@
 package hemläxa;
 
+import java.util.Scanner;
+
 public class v38 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		System.out.println("hej");
+		int skr
 
 	}
 

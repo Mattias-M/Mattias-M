@@ -1,0 +1,25 @@
+package hemläxa;
+
+import java.util.Scanner;
+
+public class v37 {
+
+	public static void main(String[] args) {
+		
+		Scanner scan = new Scanner(System.in);
+
+		System.out.println("vad är ditt namn?");
+		scan.hasNext();
+		
+		System.out.print(namn);
+		
+		System.out.print("Hur gammal är du?");
+		int age = scan.nextInt();
+		
+		
+		
+		
+		
+	}
+
+}
