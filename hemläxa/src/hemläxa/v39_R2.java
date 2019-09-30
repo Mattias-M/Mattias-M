@@ -13,7 +13,6 @@ public class v39_R2 {
 		int S = scan.nextInt();
 				
 		int R2 = 2*S-R1;
-		
 		System.out.println(R2);
 			
 		

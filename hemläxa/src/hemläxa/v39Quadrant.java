@@ -12,13 +12,13 @@ public class v39Quadrant {
 		int X = scan.nextInt();
 		int Y = scan.nextInt();
 		
-		if( X>=1 && Y>=1) { System.out.println(1);}
+		if( X>0 && Y>0) { System.out.println(1);}
 		
-		else if( X>=1 && Y<=1) {System.out.println(4);}
+		else if( X>0 && Y<0) {System.out.println(4);}
 		
-		else if( X<=1 && Y<=1) {System.out.println(3);}
+		else if( X<0 && Y<0) {System.out.println(3);}
 		
-		else if( X<=1 && Y>=1) {System.out.println(2);}
+		else if( X<0 && Y>0) {System.out.println(2);}
 		
 
 	}
