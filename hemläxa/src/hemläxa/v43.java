@@ -10,13 +10,27 @@ public class v43 {
 		
 		double radius = scan.nextInt();
 		
-		volume(double radius);
+		String str = scan.toString();
+		
+		double vol = volume(radius);
+		System.out.println(vol);
+		
+		String rev = str(reverse);
 		
 	}
 	
-	public static void volume(double radius) {
+	public static double volume(double radius) {
 		
-		(4*Math.PI*radius Math.pow(radius, 3)/3)
+		double volum = (4*Math.PI*Math.pow(radius, 3))/3;
+		
+		return volum;	
+	}
+	
+	public static void reverse(String strtingToReverse) {
+		
+		
+			
 		
 	}
+	
 }
