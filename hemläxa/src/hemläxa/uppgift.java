@@ -1,5 +1,4 @@
-package uppgift;
-
+package hemläxa;
 import java.util.Scanner;
 
 public class uppgift {
@@ -13,9 +12,13 @@ public class uppgift {
 	public static double fahrenheitToCelsius(double fahrenheit) {
 		double celsius = ((fahrenheit - 32)*5)/9;
 		
-		return celsius;z
+		return celsius;
 	}
-	
+	public static double kelvinToCelsius(double kelvin) {
+		double celsius = (kelvin - 273.15);
+		
+		return celsius;
+	}
 	
 	
 }
