@@ -24,6 +24,8 @@ public class uppgift {
 		System.out.println(fallSpeed(2.5));
 		
 		System.out.println(delta(5,1));
+		
+		System.out.println(volumeToMass(FluidTable.WATER,1));
 
 	}
 
@@ -80,6 +82,10 @@ public class uppgift {
 		return delta;
 	}
 	
+	public static double volumeToMass(FluidTable fluid, double volume) {
+		double mass = fluid.density * volume;
+		return mass;
+	}
 	
 	
 }
