@@ -27,6 +27,10 @@ public class uppgift {
 		
 		System.out.println(volumeToMass(FluidTable.WATER,1));
 
+		System.out.println(volumeToMassGas (GasTable.AIR,1));
+		
+		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
+		
 	}
 
 	public static double fahrenheitToCelsius(double fahrenheit) {
@@ -59,8 +63,8 @@ public class uppgift {
 	
 	public static double kineticEnergy(double mass, double velocity) {
 		Math math;
-		double ek = 0.5 * mass * Math.pow(velocity, 2);
-		return ek;
+		double KE = 0.5 * mass * Math.pow(velocity, 2);
+		return KE;
 		
 	}
 	public static double potentialEnergy(double mass, double height) {
@@ -85,6 +89,19 @@ public class uppgift {
 	public static double volumeToMass(FluidTable fluid, double volume) {
 		double mass = fluid.density * volume;
 		return mass;
+	}
+	
+	public static double volumeToMassGas (GasTable gas, double volume) {
+		double mass = gas.density * volume;
+		return mass;
+	}
+	public static double volumeToMassSolid (SolidTable solid, double volume) {
+		double mass = solid.density * volume;
+		return mass;
+	}
+	
+	public static double svtVelocity(double distance, double time) {
+		return distance/time;
 	}
 	
 	
