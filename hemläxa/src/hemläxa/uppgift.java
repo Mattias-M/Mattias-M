@@ -31,6 +31,14 @@ public class uppgift {
 		
 		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
 		
+		System.out.println(svtDistance(10,5));
+		
+		System.out.println(svtTime(10,2));
+		
+		System.out.println(work(50,10));
+		
+		System.out.println(power(1000,2));
+		
 	}
 
 	public static double fahrenheitToCelsius(double fahrenheit) {
@@ -104,5 +112,18 @@ public class uppgift {
 		return distance/time;
 	}
 	
+	public static double svtDistance(double velocity, double time) {
+		return velocity * time;
+	}
 	
+	public static double svtTime(double distance, double velocity) {
+		return distance/velocity;
+	}
+	public static double work(double force, double distance) {
+		return distance * force;
+	}
+	
+	public static double power(double work, double time) {
+		return work/time;
+	}
 }
