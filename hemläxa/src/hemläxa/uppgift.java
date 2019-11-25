@@ -18,6 +18,8 @@ public class uppgift {
 		System.out.println(heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint));
 
 		System.out.println(pressureUnderWater(75));
+		
+		System.out.println(velocityToHeight(16.667));
 	}
 
 	public static double fahrenheitToCelsius(double fahrenheit) {
