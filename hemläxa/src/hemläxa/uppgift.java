@@ -11,42 +11,13 @@ public class uppgift {
 
 	public static void main(String[] args) {
 		
-		System.out.println(fallSpeed(2.5));
+		System.out.println(volumeToMassSolid(SolidTable.IRON, 0.06));
 		
-		System.out.println(fluidPressure(FluidTable.WATER, 10));
+		System.out.println(svtDistance(2.7, 3000));
 		
-		System.out.println(pressureUnderWater(10));
-		
-		System.out.println(kineticEnergy(2,2));
-		
-		System.out.println(potentialEnergy(2,5));
-		
-		System.out.println(fallSpeed(2.5));
-		
-		System.out.println(delta(5,1));
-		
-		System.out.println(volumeToMass(FluidTable.WATER,1));
+		System.out.println(heatFluid(FluidTable.WATER, 4, FluidTable.WATER.boilPoint));
 
-		System.out.println(volumeToMassGas (GasTable.AIR,1));
-		
-		System.out.println(volumeToMassSolid(SolidTable.IRON,1));
-		
-		System.out.println(svtDistance(10,5));
-		
-		System.out.println(svtTime(10,2));
-		
-		System.out.println(work(50,10));
-		
-		System.out.println(power(1000,2));
-		
-		System.out.println(heatSolid(SolidTable.IRON,1,2));
-		
-		System.out.println(heatFluid(FluidTable.WATER,1,10));
-		
-		System.out.println(heatGas(GasTable.AIR,1,1));
-		
-		System.out.println(velocityToHeight(9.82));
-		
+		System.out.println(pressureUnderWater(75));
 	}
 
 	public static double fahrenheitToCelsius(double fahrenheit) {
