@@ -23,6 +23,19 @@ public class uppgift {
 		
 		System.out.println(power(work(force(735),(100/3.6 * 4.8)),4.8));
 		
+		System.out.println(u7(1, 12 ,0.5));
+		/**
+		 * räkna ut skillnaden mellan 4 och 5	
+		 */
+		System.out.println(delta(4, 5));
+		/**
+		 * Räkna ut fjärderkonstanten om man har en vikt som väger 5kg och fjärden dras ut med 0.5 m
+		 */
+		System.out.println(HookesLag(force(5),0.5));
+		/**
+		 * hur snabbt åker en sten om man släpper den vid 50 meters höjd
+		 */
+		System.out.println(fallSpeed(50));
 		
 	}
 	/**
@@ -95,8 +108,8 @@ public class uppgift {
 	}
 	/**
 	 * räknar ut hastigheten på obejekt när man släppps i fritt fall
-	 * @param height höjden som den släpps från.
-	 * @return
+	 * @param height höjden som den släpps från i meter
+	 * @return vilken hastighet obejektet har i m/s
 	 */
 	public static double fallSpeed(double height) {
 		
@@ -104,45 +117,98 @@ public class uppgift {
 		return hastighet;
 		
 	}
-	
+	/**
+	 * räknar ut deltan(skillnaden) på två tal
+	 * @param first första talet
+	 * @param last andra talet
+	 * @return
+	 */
 	public static double delta(double first, double last) {
 		double delta = last - first;
 		return delta;
 	}
-	
+	/**
+	 * volymen till vikt
+	 * @param fluid hämtar densitet på något flytande ämne.
+	 * @param volume volumen på ämnet.
+	 * @return massan på ämnet
+	 */
 	public static double volumeToMass(FluidTable fluid, double volume) {
 		double mass = fluid.density * volume;
 		return mass;
 	}
-	
+	/**
+	 * volymen till vikt
+	 * @param gas hämtar densitet på något ämne i gasform
+	 * @param volume volumen på ämnet.
+	 * @return massan på ämnet
+	 */
 	public static double volumeToMassGas (GasTable gas, double volume) {
 		double mass = gas.density * volume;
 		return mass;
 	}
+	/**
+	 * volymen till vikt
+	 * @param solid hämtar densitet på något ämne i fastform
+	 * @param volume volumen på ämnet
+	 * @return massan på ämnet
+	 */
 	public static double volumeToMassSolid (SolidTable solid, double volume) {
 		double mass = solid.density * volume;
 		return mass;
 	}
-	
+	/**
+	 * räknar ut hastigheten
+	 * @param distance lägnden i m
+	 * @param time tiden i sekunder
+	 * @return hastigheten i m/s
+	 */
 	public static double svtVelocity(double distance, double time) {
 		return distance/time;
 	}
-	
+	/**
+	 * räknar ut lägnden
+	 * @param velocity hastighet i m/s
+	 * @param time tiden i s
+	 * @return lägnd i m
+	 */
 	public static double svtDistance(double velocity, double time) {
 		return velocity * time;
 	}
-	
+	/**
+	 *  räknar ut tiden 
+	 * @param distance lägnden i m
+	 * @param velocity hastighet i m/S
+	 * @return tiden i m/s
+	 */
 	public static double svtTime(double distance, double velocity) {
 		return distance/velocity;
 	}
+	/**
+	 * räknar ut arbete
+	 * @param force kraften som obijektet ufsättsför 
+	 * @param distance längden i m
+	 * @return arbete i nm
+	 */
 	public static double work(double force, double distance) {
 		return distance * force;
 	}
-	
+	/**
+	 * 
+	 * @param work
+	 * @param time
+	 * @return
+	 */
 	public static double power(double work, double time) {
 		return work/time;
 	}
-	
+	/**
+	 * 
+	 * @param solid
+	 * @param mass
+	 * @param deltaT
+	 * @return
+	 */
 	public static double heatSolid(SolidTable solid, double mass, double deltaT) {
 		return solid.heatCapacity * mass * deltaT;
 	}
@@ -160,8 +226,8 @@ public class uppgift {
 		return Math.pow(velocity, 2)/ (2*g_swe);
 	}
 	
-	public static double HookesLag (double k, double deltaL) {
-		return k*deltaL;
+	public static double HookesLag (double Kraft, double deltaL) {
+		return Kraft*deltaL;
 	}
 	
 	public static double ljudintensitenten (double effekt, double area) {
@@ -171,6 +237,17 @@ public class uppgift {
 	public static double force (double mass) {
 		return mass*g_swe;
 	}
-
+	
+	public static double u7 (double mass, double h,double hf){
+	while ( h => hf;) {
+		
+		double E = mass* g_swe*h;
+		E = E * 0.99;
+		h = E/(mass * g_swe);
+		double studs ++;
+		
+	}
+return studs;
+	}
 	
 }
