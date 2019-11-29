@@ -288,4 +288,16 @@ public class uppgift {
 return studs;
 	}
 	
+	public static double meterISekund (double KilometerITimmen) {
+		return KilometerITimmen/ 3.6;
+	}
+	
+	public static double KilometerITimmen (double meterISekund) {
+		return meterISekund* 3.6;
+	}
+	
+	public static double Medelhstighet(double sträcka, double tid) {
+		return sträcka/tid;
+	}
+	public 
 }
