@@ -24,14 +24,19 @@ public class uppgift {
 		System.out.println(power(work(force(735),(100/3.6 * 4.8)),4.8));
 		
 		System.out.println(u7(1, 12 ,0.5));
+		
+		
+		
 		/**
-		 * räkna ut skillnaden mellan 4 och 5	
+		 * räkna ut  kineticEneregi på en sten som väger 5kg som flyger med en hasstighet på 50 m/s
 		 */
-		System.out.println(delta(4, 5));
+		
+		System.out.println( kineticEnergy(5, 50));
+		
 		/**
-		 * Räkna ut fjärderkonstanten om man har en vikt som väger 5kg och fjärden dras ut med 0.5 m
+		 * Räkna ut fjärderkonstanten om man har en vikt som väger 5kg och fjärden dras ut med från 5.0 m till 5.5 
 		 */
-		System.out.println(HookesLag(force(5),0.5));
+		System.out.println(HookesLag(force(5),delta(5, 5.5)));
 		/**
 		 * hur snabbt åker en sten om man släpper den vid 50 meters höjd
 		 */
@@ -238,13 +243,17 @@ public class uppgift {
 		return mass*g_swe;
 	}
 	
-	public static double u7 (double mass, double h,double hf){
-	while ( h => hf;) {
+	public static int u7 (double mass, double h,double mH){
+		int studs = 0;
+		
+		
+		
+		while ( h > mH) {
 		
 		double E = mass* g_swe*h;
 		E = E * 0.99;
 		h = E/(mass * g_swe);
-		double studs ++;
+		studs++;
 		
 	}
 return studs;
