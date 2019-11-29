@@ -287,11 +287,19 @@ public class uppgift {
 	}
 return studs;
 	}
-	
+	/**
+	 * räknar ut Km/h till m/s
+	 * @param KilometerITimmen km/h
+	 * @return m/s
+	 */
 	public static double meterISekund (double KilometerITimmen) {
 		return KilometerITimmen/ 3.6;
 	}
-	
+	/**
+	 * 
+	 * @param meterISekund
+	 * @return
+	 */
 	public static double KilometerITimmen (double meterISekund) {
 		return meterISekund* 3.6;
 	}
@@ -299,5 +307,30 @@ return studs;
 	public static double Medelhstighet(double sträcka, double tid) {
 		return sträcka/tid;
 	}
-	public 
+	public static double kgToGram(double mass){
+
+        return mass * 1000;
+    }
+	public static double impulsKraft(double kraft, double deltaTid){
+		
+		return kraft *deltaTid;
+	}
+	
+	public static double accelerationToDistance(double acceleration, double time){
+
+        return acceleration * Math.pow(time, 2) / 2;
+    }
+	
+	public static double medianAcceleration(double deltaV, double time) {
+
+        return deltaV / time;
+
+    }
+	
+	public static double gramToKg(double mass){
+
+
+        return mass / 1000;
+    }
+
 }
