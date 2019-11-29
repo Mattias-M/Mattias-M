@@ -208,41 +208,70 @@ public class uppgift {
 		return work/time;
 	}
 	/**
-	 * 
-	 * @param solid
-	 * @param mass
-	 * @param deltaT
+	 * En metod för att räkna fram hur mycket energi behövs för att värma ett visst material till angivet antal grader.
+	 * @param solid matiralet som ska värmas upp.
+	 * @param mass massan på matiralet
+	 * @param deltaT tiden som man värmer upp
 	 * @return
 	 */
 	public static double heatSolid(SolidTable solid, double mass, double deltaT) {
 		return solid.heatCapacity * mass * deltaT;
 	}
-	
+	/**
+	 * En metod för att räkna fram hur mycket energi behövs för att värma ett visst material till angivet antal grader.
+	 * @param solid matiralet som ska värmas upp.
+	 * @param mass massan på matiralet
+	 * @param deltaT tiden som man värmer upp
+	 * @return
+	 */
 	public static double heatFluid(FluidTable fluid, double mass, double deltaT) {
 		double heat = fluid.heatCapacity * mass * deltaT;
 		return heat;
 	}
-	
+	/**
+	 * En metod för att räkna fram hur mycket energi behövs för att värma ett visst material till angivet antal grader.
+	 * @param solid matiralet som ska värmas upp.
+	 * @param mass massan på matiralet
+	 * @param deltaT tiden som man värmer upp
+	 * @return
+	 */
 	public static double heatGas(GasTable gas, double mass, double deltaT) {
 		return gas.heatCapacity * mass * deltaT;
 	}
 	
+	/**
+	 * räknar ut hastighet till höjd när man kasar uppåt på planeten jorden
+	 * @param velocity hastigheten
+	 * @returnhöjden
+	 */
 	public static double velocityToHeight(double velocity) {
 		return Math.pow(velocity, 2)/ (2*g_swe);
 	}
-	
+	/**
+	 * räknar ut fjärderkonstanten
+	 * @param Kraft kraften man lägger på fjärden
+	 * @param deltaL lägden fjärden dras ut
+	 * @return
+	 */
 	public static double HookesLag (double Kraft, double deltaL) {
 		return Kraft*deltaL;
 	}
 	
-	public static double ljudintensitenten (double effekt, double area) {
-		return effekt/area;
-	}
-	
+	/**
+	 * räknar ut kraften
+	 * @param mass massan
+	 * @return kraft
+	 */
 	public static double force (double mass) {
 		return mass*g_swe;
 	}
-	
+	/**
+	 * metoden till uppgift 7
+	 * @param mass massan på studsbollen
+	 * @param h höjden den släpps från
+	 * @param mH lägsta höjden
+	 * @return hur många gånger den stutsar
+	 */
 	public static int u7 (double mass, double h,double mH){
 		int studs = 0;
 		
