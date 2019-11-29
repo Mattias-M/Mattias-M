@@ -296,37 +296,66 @@ return studs;
 		return KilometerITimmen/ 3.6;
 	}
 	/**
-	 * 
-	 * @param meterISekund
-	 * @return
+	 * k/m till m/s
+	 * @param meterISekund m/s
+	 * @return k/h
 	 */
 	public static double KilometerITimmen (double meterISekund) {
 		return meterISekund* 3.6;
 	}
-	
+	/**
+	 * räknar ut medelhastigheten
+	 * @param sträcka stäckan obejektet åker i km
+	 * @param tid tiden den åker i sekunder
+	 * @return hastighet i m/s
+	 */
 	public static double Medelhstighet(double sträcka, double tid) {
 		return sträcka/tid;
 	}
+	/**
+	 * killogram till gram
+	 * @param mass massan i kilogram
+	 * @return massan i gram
+	 */
 	public static double kgToGram(double mass){
 
         return mass * 1000;
     }
+	/**
+	 * räknar ut impulsKfraften
+	 * @param kraft kraften i N
+	 * @param deltaTid tiden i S
+	 * @return impulskraft
+	 */
 	public static double impulsKraft(double kraft, double deltaTid){
 		
 		return kraft *deltaTid;
 	}
-	
+	/**
+	 * räknar ut hastigheten 
+	 * @param acceleration accelarationen i m/s^2
+	 * @param time tiden
+	 * @return hastigheten i m/s
+	 */
 	public static double accelerationToDistance(double acceleration, double time){
 
         return acceleration * Math.pow(time, 2) / 2;
     }
-	
+	/**
+	 * räknar ut median accelrationen
+	 * @param deltaV delta hastighet i m/s
+	 * @param time tiden i s
+	 * @return median accelrationen i m/s^2
+	 */
 	public static double medianAcceleration(double deltaV, double time) {
 
         return deltaV / time;
-
     }
-	
+	/**
+	 * räknar ut gram till killo gram
+	 * @param mass massan i kg
+	 * @return massan i g
+	 */
 	public static double gramToKg(double mass){
 
 
