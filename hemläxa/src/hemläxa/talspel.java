@@ -55,24 +55,24 @@ public class talspel {
 	
 	public static void ToBig(){
 		System.out.println("Din gissnig var för hög");
-		guess --;
-		if (guess == 0) {
+		guesses --;
+		if (guesses == 0) {
 			End();
 		}
 		else {
-			System.out.println("du har " + guess + " gissnigar kvar"); 
+			System.out.println("du har " + guesses + " gissnigar kvar"); 
 			Guess();
 		}
 	}
 	
 	public static void ToSmal() {
 		System.out.println("Din gissnig var för lågt");
-		guess --;
-		if (guess == 0) {
+		guesses --;
+		if (guesses == 0) {
 			End();
 		}
 		else {
-			System.out.println("du har " + guess + " gissnigar kvar"); 
+			System.out.println("du har " + guesses + " gissnigar kvar"); 
 			Guess();
 		}	
 		
@@ -80,7 +80,7 @@ public class talspel {
 	}
 	
 	public static void End() {
-		if (guess == 0) {
+		if (guesses == 0) {
 			System.out.println("rackans järnspikar, slut på gissnigar. Tvärr så har du förlorat."); 
 		}
 		else {
