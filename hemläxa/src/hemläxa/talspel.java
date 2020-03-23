@@ -12,7 +12,7 @@ public class talspel {
 	static int guesses;
 	static int secretnumber;
 	static int guess;
-	static int IsItInt;
+	static int ItIsInt;
 	public static void main(String[] args) {
 		
 		ChoseName();
@@ -57,7 +57,9 @@ public class talspel {
 		Guess();
 	/**
 	 * Metoden gör så att spelaren kan gissa på talet.
-	 * Om spelaren gissar för högt så 
+	 * Om spelaren gissar rätt så böjar den metoden End()
+	 * Om spelaren gissar för högt så böjar den metoden ToBig()
+	 * Om spelaren gissar för lågt böjar den metoden ToSmal()
 	 */
 	}
 	public static void Guess() {
@@ -74,7 +76,11 @@ public class talspel {
 			ToSmal();
 		}
 	}
-	
+	/*
+	 * Metoden skriver att spelaren gissar för högt
+	 * tar 1 minus från guesses och kollar om guesse är 0. Om guesses är noll så böjar den metoden End()
+	 * annars så skriver den ut hur många gissnigar man har kvar och spelaren för gissa igen.
+	 */
 	public static void ToBig(){
 		System.out.println("Din gissnig var för hög");
 		guesses --;
@@ -86,7 +92,11 @@ public class talspel {
 			Guess();
 		}
 	}
-	
+	/**
+	 * Metoden skriver att spelaren gissar för lågt
+	 * tar 1 minus från guesses och kollar om guesse är 0. Om guesses är noll så böjar den metoden End()
+	 * annars så skriver den ut hur många gissnigar man har kvar och spelaren för gissa igen.
+	 */
 	public static void ToSmal() {
 		System.out.println("Din gissnig var för lågt");
 		guesses --;
@@ -100,7 +110,10 @@ public class talspel {
 		
 		
 	}
-	
+	/**
+	 * Metoden kollar om man har 0 guesse om man har det så skriver den ut det och böjar metoden restart()
+	 * annars så skriver den "Grattis" och startar Metoden reset()
+	 */
 	public static void End() {
 		if (guesses == 0) {
 			System.out.println("rackans järnspikar, slut på gissnigar. Tvärr så har du förlorat."); 
@@ -111,11 +124,15 @@ public class talspel {
 			restart();
 		}
 	}
-	
+	/**
+	 * Denna metod är en try chatch som för har en scanner. om man har skrivit en int så gör det inget. 
+	 * Om man inte har skrivit en inte så säjer den till och får försöka ingen. 
+	 * @return int som man har skrivit.
+	 */
 	public static int IntChecker() {
         while (true) {
             try {
-                IsItInt = scan.nextInt();
+                ItIsInt = scan.nextInt();
                 break;
 
             } catch (Exception InputMismatchException) {
@@ -124,7 +141,13 @@ public class talspel {
                 scan.next();
             }
         }
-        return IsItInt;
+        return ItIsInt;
+        
+        /**
+         * Metoden gör så man får välja om man vill spela igen ell inte.
+         * Om man väljer att man ska pela ingen så böjar den på metodenIntro()(så man  inte behöver skriva sitt namn igen.)
+         * annars så stänger den ner programet.
+         */
     }
 	public static void restart() {
 		System.out.println("vill du spela ingen? skriv 1 annars skriv 2");
