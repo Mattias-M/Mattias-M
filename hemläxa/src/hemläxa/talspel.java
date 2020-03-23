@@ -9,12 +9,10 @@ public class talspel {
 	static String Nickname;
 	static int guesses;
 	static int secretnumber;
+	static int guess;
 	public static void main(String[] args) {
 		
-		
 		ChoseName();
-		
-
 	}
 	
 	public static void ChoseName() {
@@ -34,9 +32,52 @@ public class talspel {
 	}
 	public static void ChoseNumber() {
 		System.out.println("Nu ska du välja hur stort talet som du ska gissa på ska vara. Det minsta kommer alltid vara 0. Så om du skriver 100 så kommer talet vara någonstans emellan 0 til 99");
-		System.out.println();
+		System.out.println("skriv det högsta talet " + Nickname);
 		int maxNumber = scan.nextInt();
 		secretnumber = rand.nextInt(maxNumber);
-		System.out.println(secretnumber);
+		Guess();
+		
 	}
+	public static void Guess() {
+		System.out.println("nu är det dax att giss!");
+		guess = scan.nextInt();
+		
+		if(guess == secretnumber) {
+			End();
+		}
+		else if(guess > secretnumber) {
+			ToBig();
+		}
+		else if(guess < secretnumber){
+			ToSmal();
+		}
+	}
+	
+	public static void ToBig(){
+		System.out.println("Din gissnig var för hög");
+		guess --;
+		if (guess == 0) {
+			End();
+		}
+		else {System.out.println("du har " + guess + "gissnigar kvar"); }
+	}
+	
+	public static void ToSmal() {
+		System.out.println("Din gissnig var för lågt");
+		guess --;
+		if (guess == 0) {
+			End();
+		}
+		else {System.out.println("du har " + guess + "gissnigar kvar"); }	
+	}
+	
+	public static void End() {
+		if (guess == 0) {
+			System.out.println("rackans järnspikar, slut på gissnigar. Tvärr så har du förlorat."); 
+		}
+		else {
+			System.out.println("Grattis du van!!");
+		}
+	}
+	
 }
