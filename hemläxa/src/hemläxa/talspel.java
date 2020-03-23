@@ -10,7 +10,7 @@ public class talspel {
 	static int guesses;
 	static int secretnumber;
 	static int guess;
-	static int ErrorChecker;
+	static int IsItInt;
 	public static void main(String[] args) {
 		
 		ChoseName();
@@ -28,20 +28,20 @@ public class talspel {
 	}
 	public static void ChoseGuesses() {
 		System.out.println("Nu ska du välja hur mycket gissnigar du har på dig att gissa talet. SKriv hur många gissnigar du vill ha.");
-		guesses = ErrorMessage();
+		guesses = IntChecker();
 		ChoseNumber();
 	}
 	public static void ChoseNumber() {
 		System.out.println("Nu ska du välja hur stort talet som du ska gissa på ska vara. Det minsta kommer alltid vara 0. Så om du skriver 100 så kommer talet vara någonstans emellan 0 til 99");
 		System.out.println("skriv det högsta talet " + Nickname);
-		int maxNumber = scan.nextInt();
+		int maxNumber = IntChecker();
 		secretnumber = rand.nextInt(maxNumber);
 		Guess();
 		
 	}
 	public static void Guess() {
 		System.out.println("nu är det dax att giss!");
-		guess = scan.nextInt();
+		guess = IntChecker();
 		
 		if(guess == secretnumber) {
 			End();
@@ -83,26 +83,38 @@ public class talspel {
 	public static void End() {
 		if (guesses == 0) {
 			System.out.println("rackans järnspikar, slut på gissnigar. Tvärr så har du förlorat."); 
+			restart();
 		}
 		else {
 			System.out.println("Grattis du van!!");
+			restart();
 		}
 	}
 	
-	public static int ErrorMessage() {
+	public static int IntChecker() {
         while (true) {
             try {
-                ErrorChecker = scan.nextInt();
+                IsItInt = scan.nextInt();
                 break;
 
             } catch (Exception InputMismatchException) {
 
-                System.out.println("Skriv in en siffra istället din nöt");
+                System.out.println("Du måste skriva in heltal, försökt ingen!");
                 scan.next();
             }
         }
-        return ErrorChecker;
+        return IsItInt;
     }
+	public static void restart() {
+		System.out.println("vill du spela ingen? skriv 1 annars skriv 2");
+		int YesOrNo = IntChecker();
+		if(YesOrNo == 1) {
+			Intro();
+		}
+		else {
+			System.exit(0);
+		}
+	}
 	
 	
 }
