@@ -10,6 +10,7 @@ public class talspel {
 	static int guesses;
 	static int secretnumber;
 	static int guess;
+	static int ErrorChecker;
 	public static void main(String[] args) {
 		
 		ChoseName();
@@ -27,7 +28,7 @@ public class talspel {
 	}
 	public static void ChoseGuesses() {
 		System.out.println("Nu ska du välja hur mycket gissnigar du har på dig att gissa talet. SKriv hur många gissnigar du vill ha.");
-		guesses = scan.nextInt();
+		guesses = ErrorMessage();
 		ChoseNumber();
 	}
 	public static void ChoseNumber() {
@@ -87,5 +88,21 @@ public class talspel {
 			System.out.println("Grattis du van!!");
 		}
 	}
+	
+	public static int ErrorMessage() {
+        while (true) {
+            try {
+                ErrorChecker = scan.nextInt();
+                break;
+
+            } catch (Exception InputMismatchException) {
+
+                System.out.println("Skriv in en siffra istället din nöt");
+                scan.next();
+            }
+        }
+        return ErrorChecker;
+    }
+	
 	
 }
