@@ -59,7 +59,10 @@ public class talspel {
 		if (guess == 0) {
 			End();
 		}
-		else {System.out.println("du har " + guess + "gissnigar kvar"); }
+		else {
+			System.out.println("du har " + guess + " gissnigar kvar"); 
+			Guess();
+		}
 	}
 	
 	public static void ToSmal() {
@@ -68,7 +71,12 @@ public class talspel {
 		if (guess == 0) {
 			End();
 		}
-		else {System.out.println("du har " + guess + "gissnigar kvar"); }	
+		else {
+			System.out.println("du har " + guess + " gissnigar kvar"); 
+			Guess();
+		}	
+		
+		
 	}
 	
 	public static void End() {
