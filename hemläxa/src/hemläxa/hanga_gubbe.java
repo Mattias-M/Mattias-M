@@ -9,13 +9,18 @@ public class hanga_gubbe {
 
 	static Scanner scan = new Scanner(System.in);
 	static int difficulty;
+	static int playerLife;
+	static int ItIsInt;
 	static String theSecretWord;
 	static boolean done;
+	static String the_word;
 	public static String[] easyWords = { "HEJ", "TJO", "JAVA" };
 	public static String[] hardWords = { "HEJSAN", "PROGRAMERA" };
-
+	public static char[] charArray;
 	public static void main(String[] args) {
 		welcome();
+		
+		
 
 	}
 
@@ -28,7 +33,7 @@ public class hanga_gubbe {
 
 	static void choseDeifficulty() {
 		System.out.println("Nu ska du välja svårighetsgrad, skriv 1 om du vill ha lätta ord, eller 2 för svåra ord.");
-		int hardOrEasy = scan.nextInt();
+		int hardOrEasy = IntChecker();
 		if (hardOrEasy == 1) {
 			difficulty = 1;
 			System.out.println("du har valt svårighetsgrad " + difficulty);
@@ -65,30 +70,52 @@ public class hanga_gubbe {
 		} else {
 			theSecretWord = hardWords[random.nextInt(hardWords.length)];
 		}
-
+		theGame();
 	}
 	
 	static void theGame() {
 		done = false;
-		while(done=false) {
+		playerLife = 9;
+		//while(done=true) {
 			graphic();
 			guess();
 			checkIfRigtOrWrong();
 			checkIfPlayerDead();
 			checkIfWordIsDon();
-		}
+		//}
 		end();
 	}
 	
 	static void graphic() {
+		the_word = new String(new char[theSecretWord.length()]).replace("\0", "_");
+		for (char ch : the_word.toCharArray()) {
+			System.out.print(ch);
+			System.out.print(" ");
+		}
+		System.out.println(the_word);
+		System.out.println("du har " + playerLife + "liv kvar.");
 		
+		
+		String guess = scan.nextLine();
+		guess = guess.toUpperCase();
+		System.out.println(guess);
 	}
 	
 	static void guess() {
+		System.out.println("Nu är det dax att gissa på bokstäver. Du kan gissa på hur många bokstäver du vill.");
+		String guess = scan.nextLine();
+		guess = guess.toUpperCase();
+		System.out.println(guess);
+		char[] charArray = guess.toCharArray();
+		System.out.println(charArray);
 		
 	}
 	
 	static void checkIfRigtOrWrong() {
+		
+		for (int i= 0; i<charArray.length; i++) {
+			System.out.println("Hej");
+		}
 		
 	}
 	
@@ -101,6 +128,21 @@ public class hanga_gubbe {
 	}
 	static void end() {
 		
+	}
+	
+	public static int IntChecker() {
+        while (true) {
+            try {
+                ItIsInt = scan.nextInt();
+                break;
+
+            } catch (Exception InputMismatchException) {
+
+                System.out.println("Du måste skriva in heltal, försökt ingen!");
+                scan.next();
+            }
+        }
+        return ItIsInt;
 	}
 
 }
