@@ -272,12 +272,12 @@ public class uppgift {
 	 * @param mH lägsta höjden
 	 * @return hur många gånger den stutsar
 	 */
-	public static int u7 (double mass, double h,double mH){
+	public static int u7 (double mass, double h,double minimalH){
 		int studs = 0;
 		
 		
 		
-		while ( h > mH) {
+		while ( h > minimalH) {
 		
 		double E = mass* g_swe*h;
 		E = E * 0.99;
