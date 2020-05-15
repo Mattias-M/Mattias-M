@@ -11,17 +11,15 @@ public class hanga_gubbe {
 	static int difficulty;
 	static int playerLife;
 	static int ItIsInt;
+	static String guess;
 	static String theSecretWord;
 	static boolean done;
 	static String the_word;
 	public static String[] easyWords = { "HEJ", "TJO", "JAVA" };
-	public static String[] hardWords = { "HEJSAN", "PROGRAMERA" };
-	public static char[] charArray;
+	public static String[] hardWords = { "HEJSAN", "PROGRAMERA", "BANAN" };
+	public static char[] charArray = {};
 	public static void main(String[] args) {
 		welcome();
-		
-		
-
 	}
 
 	static void welcome() {
@@ -70,7 +68,9 @@ public class hanga_gubbe {
 		} else {
 			theSecretWord = hardWords[random.nextInt(hardWords.length)];
 		}
+		
 		theGame();
+		
 	}
 	
 	static void theGame() {
@@ -79,7 +79,7 @@ public class hanga_gubbe {
 		//while(done=true) {
 			graphic();
 			guess();
-			checkIfRigtOrWrong();
+			//checkIfRigtOrWrong();
 			checkIfPlayerDead();
 			checkIfWordIsDon();
 		//}
@@ -96,31 +96,42 @@ public class hanga_gubbe {
 		System.out.println("du har " + playerLife + "liv kvar.");
 		
 		
-		String guess = scan.nextLine();
-		guess = guess.toUpperCase();
-		System.out.println(guess);
 	}
+	
+
 	
 	static void guess() {
 		System.out.println("Nu är det dax att gissa på bokstäver. Du kan gissa på hur många bokstäver du vill.");
 		String guess = scan.nextLine();
 		guess = guess.toUpperCase();
-		System.out.println(guess);
+		
 		char[] charArray = guess.toCharArray();
-		System.out.println(charArray);
-		
-	}
 	
-	static void checkIfRigtOrWrong() {
+	
+	//static void checkIfRigtOrWrong() {
 		
-		for (int i= 0; i<charArray.length; i++) {
-			System.out.println("Hej");
+		for (char i :charArray ) {
+			
+			if(theSecretWord.indexOf(i)!=-1) {
+				System.out.println("ja");
+				
+			}
+			else {
+				System.out.println("nej");
+				playerLife --;
+				checkIfPlayerDead();
+			}
+			
 		}
-		
 	}
 	
 	static void checkIfPlayerDead() {
-		
+		if(playerLife == 0) {
+			end();
+		}
+		else {
+			
+		}
 	}
 	
 	static void checkIfWordIsDon() {
@@ -134,6 +145,7 @@ public class hanga_gubbe {
         while (true) {
             try {
                 ItIsInt = scan.nextInt();
+                scan.nextLine();
                 break;
 
             } catch (Exception InputMismatchException) {

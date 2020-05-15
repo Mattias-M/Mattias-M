@@ -1,5 +1,6 @@
 package hemläxa;
 
+import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -159,6 +160,11 @@ public class talspel {
 			System.exit(0);
 		}
 	}
-	
+	static void MakeWordToArrayList() {
+		ArrayList<Character> chars = new ArrayList <Character>();
+		for (char c: theSecretWord.toCharArray()) {
+			chars.add(c);
+		}
+		System.out.println(chars);
 	
 }
