@@ -169,7 +169,7 @@ public class hanga_gubbe {
 		}
 	}
 /**
- * 
+ * denna metoden ser om det finns några _ i theSecretWordBut_, om det finns några så gör den inget. Om det inte finns några understräck så har spelaren klara spelet och starta metoden end
  */
 	static void checkIfWordIsDon() {
 
@@ -181,7 +181,12 @@ public class hanga_gubbe {
 		}
 
 	}
-
+/**
+ * denna metoden frågar spelaren om spelaren vill spela igen eller inte. 
+ * Om spelaren väljer att spela igen så startas metoden choseDeifficulty.
+ * Om spelaren inte vill spela igen så stängs spelet ner.
+ * anväder en try-catch så spelet inte krachar om spelaren skriver in en bokstav. 
+ */
 	static void end() {
 		System.out.println("vill du spela ingen? skriv 1 annars skriv 2");
 		int YesOrNo = IntChecker();
@@ -193,6 +198,11 @@ public class hanga_gubbe {
 
 	}
 
+	/**
+	 * Denna metod är en try chatch som har en scanner. om man har skrivit en int så gör det inget. 
+	 * Om man inte har skrivit en inte så säjer den till och får försöka ingen. 
+	 * @return int som man har skrivit.
+	 */
 	public static int IntChecker() {
 		while (true) {
 			try {
