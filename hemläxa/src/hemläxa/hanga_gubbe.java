@@ -11,6 +11,7 @@ public class hanga_gubbe {
 	static int difficulty;
 	static int playerLife;
 	static int ItIsInt;
+	static char charInWord;
 	static String guess;
 	static String theSecretWord;
 	static boolean done;
@@ -18,6 +19,8 @@ public class hanga_gubbe {
 	public static String[] easyWords = { "HEJ", "TJO", "JAVA" };
 	public static String[] hardWords = { "HEJSAN", "PROGRAMERA", "BANAN" };
 	public static char[] charArray = {};
+	public static ArrayList<Character> theSecretWordBut_ = new ArrayList<Character>();
+
 	public static void main(String[] args) {
 		welcome();
 	}
@@ -68,93 +71,140 @@ public class hanga_gubbe {
 		} else {
 			theSecretWord = hardWords[random.nextInt(hardWords.length)];
 		}
-		
+
 		theGame();
-		
+
 	}
-	
+
 	static void theGame() {
 		done = false;
 		playerLife = 9;
-		//while(done=true) {
-			graphic();
-			guess();
-			//checkIfRigtOrWrong();
-			checkIfPlayerDead();
-			checkIfWordIsDon();
-		//}
+		// while(done=true) {
+		graphic();
+		guess();
+		// checkIfRigtOrWrong();
+		checkIfPlayerDead();
+		checkIfWordIsDon();
+		// }
 		end();
 	}
-	
+
 	static void graphic() {
+	/**
+	 * 
+	 
 		the_word = new String(new char[theSecretWord.length()]).replace("\0", "_");
 		for (char ch : the_word.toCharArray()) {
 			System.out.print(ch);
 			System.out.print(" ");
 		}
-		System.out.println(the_word);
+		*/
+		
+		
+		for (int i= 0; i < theSecretWord.length(); i++) {
+			theSecretWordBut_.add('_');
+		}
+		System.out.println(theSecretWordBut_);
+		
 		System.out.println("du har " + playerLife + "liv kvar.");
-		
-		
-	}
-	
 
-	
+	}
+
 	static void guess() {
 		System.out.println("Nu är det dax att gissa på bokstäver. Du kan gissa på hur många bokstäver du vill.");
 		String guess = scan.nextLine();
 		guess = guess.toUpperCase();
-		
+
 		char[] charArray = guess.toCharArray();
-	
-	
-	//static void checkIfRigtOrWrong() {
-		
-		for (char i :charArray ) {
-			
-			if(theSecretWord.indexOf(i)!=-1) {
+
+		// static void checkIfRigtOrWrong() {
+
+		for (char i : charArray) {
+
+			if (theSecretWord.indexOf(i) != -1) {
 				System.out.println("ja");
-				
-			}
-			else {
-				System.out.println("nej");
-				playerLife --;
+				charInWord = i;
+				System.out.println(charInWord);
+				checkWhereCharIsInString();
+
+			} else {
+				System.out.println(i + " är inte i ordet.");
+				playerLife--;
 				checkIfPlayerDead();
 			}
-			
+
 		}
 	}
-	
+
 	static void checkIfPlayerDead() {
-		if(playerLife == 0) {
+		if (playerLife == 0) {
+			end();
+		} else {
+
+		}
+	}
+
+	static void checkWhereCharIsInString() {
+		for (int i = 0; i < theSecretWord.length(); i++) {
+			
+			if(charInWord == theSecretWord.charAt(i)) {
+				
+				theSecretWordBut_.set(i, charInWord);
+								
+				System.out.println(theSecretWordBut_);
+				
+				checkIfWordIsDon();
+			}
+			
+			
+			
+			
+			//charInWord = theSecretWord.charAt(i);
+			// se om charInWord = först char i ordet theSecretWord
+			// om det är så byt ut första _ i variablen the_word
+			// om inte så se om charInWord = andra char i ordet theSecretWord
+			// om det är så byt ut andra _ i variablen the_word.
+			// håller på så tills man har kolla igenom alla char i theSecretWord
+
+		}
+	}
+
+	static void checkIfWordIsDon() {
+
+		if (theSecretWordBut_.indexOf('_') != -1) {
+			guess();
+		} else {
 			end();
 		}
-		else {
-			
-		}
+
 	}
-	
-	static void checkIfWordIsDon() {
-		
-	}
+
 	static void end() {
-		
+		System.out.println("vill du spela ingen? skriv 1 annars skriv 2");
+		int YesOrNo = IntChecker();
+		if(YesOrNo == 1) {
+			choseDeifficulty();
+		}
+		else {
+			System.exit(0);
+		}
+
 	}
-	
+
 	public static int IntChecker() {
-        while (true) {
-            try {
-                ItIsInt = scan.nextInt();
-                scan.nextLine();
-                break;
+		while (true) {
+			try {
+				ItIsInt = scan.nextInt();
+				scan.nextLine();
+				break;
 
-            } catch (Exception InputMismatchException) {
+			} catch (Exception InputMismatchException) {
 
-                System.out.println("Du måste skriva in heltal, försökt ingen!");
-                scan.next();
-            }
-        }
-        return ItIsInt;
+				System.out.println("Du måste skriva in heltal, försökt ingen!");
+				scan.next();
+			}
+		}
+		return ItIsInt;
 	}
 
 }
