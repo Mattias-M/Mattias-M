@@ -14,10 +14,8 @@ public class hanga_gubbe {
 	static char charInWord;
 	static String guess;
 	static String theSecretWord;
-	static boolean done;
-	static String the_word;
-	public static String[] easyWords = { "HEJ", "TJO", "JAVA" };
-	public static String[] hardWords = { "HEJSAN", "PROGRAMERA", "BANAN" };
+	public static String[] easyWords = {"JAVA", "HEJ", "ARE", "KATT", "MAMMA" };
+	public static String[] hardWords = { "HEJSAN", "CITERA", "MYNDIG", "DIAFRAGMA", "REGRESS" };
 	public static char[] charArray = {};
 	public static ArrayList<Character> theSecretWordBut_ = new ArrayList<Character>();
 
@@ -54,14 +52,6 @@ public class hanga_gubbe {
 
 	}
 
-	/**
-	 * Scanner scanList = new Scanner(new
-	 * File("C:\Users\mattias.martensson\Desktop\Mattias-M\ord.txt"));
-	 * ArrayList<String> list = new ArrayList<String>(); while(scanList.hasNext()) {
-	 * list.add(scanList.next()); }
-	 * 
-	 * scanList.close(); System.out.println(list); }
-	 */
 
 	static void randomizer() {
 		Random random = new Random();
@@ -72,41 +62,33 @@ public class hanga_gubbe {
 			theSecretWord = hardWords[random.nextInt(hardWords.length)];
 		}
 
-		theGame();
+		maketheSecretWordBut_();
 
 	}
-
-	static void theGame() {
-		done = false;
-		playerLife = 9;
-		// while(done=true) {
-		graphic();
-		guess();
-		// checkIfRigtOrWrong();
-		checkIfPlayerDead();
-		checkIfWordIsDon();
-		// }
-		end();
-	}
-
-	static void graphic() {
-	/**
-	 * 
-	 
-		the_word = new String(new char[theSecretWord.length()]).replace("\0", "_");
-		for (char ch : the_word.toCharArray()) {
-			System.out.print(ch);
-			System.out.print(" ");
-		}
-		*/
-		
-		
+	
+	static void maketheSecretWordBut_() {
 		for (int i= 0; i < theSecretWord.length(); i++) {
 			theSecretWordBut_.add('_');
 		}
+		theGame();
+	}
+
+	static void theGame() {
+		playerLife = 9;
+		
+		graphic();
+		
+	}
+
+	static void graphic() {
+	
+		
+		
 		System.out.println(theSecretWordBut_);
 		
-		System.out.println("du har " + playerLife + "liv kvar.");
+		System.out.println("du har " + playerLife + " liv kvar.");
+		
+		guess();
 
 	}
 
@@ -117,14 +99,12 @@ public class hanga_gubbe {
 
 		char[] charArray = guess.toCharArray();
 
-		// static void checkIfRigtOrWrong() {
 
 		for (char i : charArray) {
 
 			if (theSecretWord.indexOf(i) != -1) {
-				System.out.println("ja");
 				charInWord = i;
-				System.out.println(charInWord);
+				System.out.println(charInWord +" är i ordet");
 				checkWhereCharIsInString();
 
 			} else {
@@ -134,13 +114,14 @@ public class hanga_gubbe {
 			}
 
 		}
+		graphic();
 	}
 
 	static void checkIfPlayerDead() {
 		if (playerLife == 0) {
 			end();
 		} else {
-
+			
 		}
 	}
 
@@ -172,8 +153,9 @@ public class hanga_gubbe {
 	static void checkIfWordIsDon() {
 
 		if (theSecretWordBut_.indexOf('_') != -1) {
-			guess();
+			
 		} else {
+			System.out.println("Grattis, du klarade det!!");
 			end();
 		}
 
