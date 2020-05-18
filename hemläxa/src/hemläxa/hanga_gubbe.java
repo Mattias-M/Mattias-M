@@ -16,7 +16,6 @@ public class hanga_gubbe {
 	static String theSecretWord;
 	public static String[] easyWords = { "JAVA", "HEJ", "ARE", "KATT", "MAMMA" };
 	public static String[] hardWords = { "HEJSAN", "CITERA", "MYNDIG", "DIAFRAGMA", "REGRESS" };
-	public static char[] charArray = {};
 	public static ArrayList<Character> theSecretWordBut_ = new ArrayList<Character>();
 
 // metoden startar spelet.
@@ -84,7 +83,7 @@ public class hanga_gubbe {
 	}
 
 	/*
-	 * dena metoden sätter spelarens liv till 9
+	 * dena metoden sätter spelarens liv till 9 och startar grahic
 	 */
 	static void theGame() {
 		playerLife = 9;
